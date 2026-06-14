@@ -75,7 +75,7 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;line-height:1.08;letter-spacing
 .hero-bg{position:absolute;inset:0;background:url('img/hero.jpg') center/cover;filter:saturate(.85)}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,12,16,.96) 0%,rgba(11,14,20,.82) 42%,rgba(20,40,75,.5) 100%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(120,150,200,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,200,.05) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(90deg,#000,transparent 70%)}
-.hero .wrap{position:relative;z-index:2;padding-top:32px;padding-bottom:32px}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:32px;padding-bottom:32px}
 .hero-em{display:flex;align-items:center;gap:14px;font-family:var(--ff-d);letter-spacing:3px;font-size:13px;color:var(--mut);text-transform:uppercase;margin-bottom:18px}
 .hero-em b{color:var(--amber)}
 .hero-em .ln{width:60px;height:1px;background:var(--line2)}
@@ -101,14 +101,15 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;line-height:1.08;letter-spacing
 .obj:hover{border-color:var(--steel-l);transform:translateY(-4px)}
 .obj-img{position:absolute;inset:0;background-size:cover;background-position:center;transition:.5s}
 .obj:hover .obj-img{transform:scale(1.06)}
-.obj-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,16,.97) 8%,rgba(10,12,16,.7) 45%,rgba(10,12,16,.25) 100%)}
+.obj-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(9,11,15,.96) 10%,rgba(9,11,15,.62) 52%,rgba(9,11,15,.2) 100%);transition:.4s}
+.obj:hover .obj-img::after{background:linear-gradient(to top,rgba(8,10,14,.97) 0%,rgba(9,11,15,.93) 70%,rgba(13,18,28,.86) 100%)}
 .obj-c{position:relative;padding:26px;z-index:2}
 .obj-k{font-family:var(--ff-d);font-size:13px;letter-spacing:2px;color:var(--amber);margin-bottom:8px}
-.obj-c h3{font-size:21px;text-transform:uppercase;line-height:1.12}
+.obj-c h3{font-size:21px;text-transform:uppercase;line-height:1.12;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 .obj-list{list-style:none;margin-top:14px;max-height:0;opacity:0;overflow:hidden;transition:.45s}
-.obj:hover .obj-list{max-height:420px;opacity:1;margin-top:16px}
-.obj-list li{font-size:14px;color:var(--mut);padding:3px 0 3px 16px;position:relative}
-.obj-list li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:1px;background:var(--steel-l)}
+.obj:hover .obj-list{max-height:460px;opacity:1;margin-top:16px}
+.obj-list li{font-size:14.5px;color:#d7dfec;padding:4px 0 4px 16px;position:relative}
+.obj-list li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:1px;background:var(--amber)}
 .obj-hint{position:relative;z-index:2;padding:0 26px 22px;font-size:12px;letter-spacing:1px;color:var(--mut2);text-transform:uppercase;display:flex;align-items:center;gap:7px}
 .obj:hover .obj-hint{display:none}
 
@@ -126,45 +127,61 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;line-height:1.08;letter-spacing
 
 /* map */
 .map-wrap{display:grid;grid-template-columns:1.45fr 1fr;gap:40px;align-items:center}
-.map-box{position:relative;background:radial-gradient(circle at 60% 40%,rgba(46,91,158,.18),transparent 60%),var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px;overflow:hidden}
+.map-box{position:relative;background:radial-gradient(circle at 35% 55%,rgba(200,70,40,.1),transparent 55%),var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:30px;overflow:hidden}
 .map-box::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,150,200,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(120,150,200,.045) 1px,transparent 1px);background-size:40px 40px}
-.ru-map{position:relative;width:100%;color:var(--steel-d)}
-.ru-map svg{width:100%;height:auto;display:block;filter:drop-shadow(0 0 30px rgba(46,91,158,.35))}
-.ru-map .land{fill:#1c2738;stroke:var(--steel-l);stroke-width:6;vector-effect:non-scaling-stroke;transition:.3s}
-.node{position:absolute;transform:translate(-50%,-50%);z-index:3}
-.node .pin{width:13px;height:13px;border-radius:50%;background:var(--amber);border:2px solid #fff3;box-shadow:0 0 0 0 rgba(240,138,29,.6);animation:pulse 2.4s infinite}
-.node.hq .pin{background:var(--steel-l);width:16px;height:16px;animation:pulse 2.4s infinite}
-.node .lab{position:absolute;left:18px;top:-4px;font-size:11px;letter-spacing:.5px;color:var(--ink);white-space:nowrap;background:rgba(12,14,18,.7);padding:2px 7px;border-radius:5px;border:1px solid var(--line2)}
-.map-legend{margin-top:18px;display:flex;gap:22px;font-size:13px;color:var(--mut);flex-wrap:wrap}
+.ru-map{position:relative;width:100%;color:#16202f}
+.ru-map svg{width:100%;height:auto;display:block;filter:drop-shadow(0 0 26px rgba(46,91,158,.28))}
+.ru-map .land{fill:#172230;stroke:#3a557e;stroke-width:5;vector-effect:non-scaling-stroke}
+/* зоны угроз — диффузное свечение */
+.zone{position:absolute;transform:translate(-50%,-50%);border-radius:50%;z-index:2;pointer-events:none;mix-blend-mode:screen;animation:breathe 4s ease-in-out infinite}
+.zone.hi{background:radial-gradient(circle,rgba(255,70,40,.62),rgba(255,90,40,.18) 45%,transparent 70%)}
+.zone.mid{background:radial-gradient(circle,rgba(255,150,30,.5),rgba(255,150,30,.12) 45%,transparent 70%)}
+@keyframes breathe{0%,100%{opacity:.65;transform:translate(-50%,-50%) scale(.92)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+/* точки фиксации */
+.node{position:absolute;transform:translate(-50%,-50%);z-index:4}
+.node .pin{width:11px;height:11px;border-radius:50%;background:#ff5a2c;border:2px solid rgba(255,255,255,.5);box-shadow:0 0 0 0 rgba(255,70,40,.6);animation:pulse-r 2.2s infinite}
+@keyframes pulse-r{0%{box-shadow:0 0 0 0 rgba(255,70,40,.55)}70%{box-shadow:0 0 0 11px rgba(255,70,40,0)}100%{box-shadow:0 0 0 0 rgba(255,70,40,0)}}
+.map-legend{position:relative;margin-top:18px;display:flex;gap:22px;font-size:13px;color:var(--mut);flex-wrap:wrap;z-index:5}
 .map-legend span{display:flex;align-items:center;gap:8px}
-.map-legend i{width:10px;height:10px;border-radius:50%}
+.map-legend i{width:11px;height:11px;border-radius:50%}
 .geo h2{font-size:clamp(28px,3.6vw,42px);text-transform:uppercase}
-.geo .big{font-family:var(--ff-d);font-weight:700;font-size:54px;color:var(--amber);line-height:1;margin:8px 0 4px}
-.districts{list-style:none;margin-top:24px;columns:2;column-gap:24px}
-.districts li{font-size:14.5px;color:var(--mut);padding:7px 0 7px 24px;position:relative;break-inside:avoid}
-.districts li .svg-i{position:absolute;left:0;top:8px;width:16px;height:16px;color:var(--amber)}
+.geo .big{font-family:var(--ff-d);font-weight:700;font-size:clamp(40px,4.6vw,58px);color:#ff5a2c;line-height:1;margin:6px 0 2px;text-shadow:0 0 30px rgba(255,70,40,.3)}
+.geo .big-sub{font-size:14px;color:var(--mut2);text-transform:uppercase;letter-spacing:2px;margin-bottom:18px}
+.threats{list-style:none;margin-top:22px}
+.threats li{display:flex;align-items:center;gap:13px;font-size:14.5px;color:#cdd6e3;padding:11px 0;border-top:1px solid var(--line)}
+.threats li:first-child{border-top:none}
+.threats li .lv{width:9px;height:9px;border-radius:50%;flex:none}
+.threats li .nm{flex:1}
+.threats li .badge{font-family:var(--ff-d);font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mut2)}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel)}
 .step{padding:34px 28px;border-right:1px solid var(--line);position:relative;transition:.3s}
 .step:last-child{border-right:none}
 .step:hover{background:var(--panel2)}
-.step-n{font-family:var(--ff-d);font-weight:700;font-size:46px;color:var(--line2);line-height:1;transition:.3s}
-.step:hover .step-n{color:var(--amber)}
-.step .ic{width:46px;height:46px;border-radius:11px;background:var(--bg2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;margin:18px 0 16px}
-.step .ic .svg-i{color:var(--steel-l)}
+.step-n{font-family:var(--ff-d);font-weight:700;font-size:46px;color:var(--amber);line-height:1;transition:.3s;text-shadow:0 0 26px rgba(240,138,29,.35)}
+.step:hover .step-n{color:var(--amber-l)}
+.step .ic{width:46px;height:46px;border-radius:11px;background:linear-gradient(135deg,rgba(240,138,29,.16),rgba(240,138,29,.04));border:1px solid rgba(240,138,29,.4);display:flex;align-items:center;justify-content:center;margin:18px 0 16px}
+.step .ic .svg-i{color:var(--amber)}
 .step h3{font-size:18px;text-transform:uppercase;line-height:1.15}
 .step p{color:var(--mut);font-size:14px;margin-top:9px}
 
 /* form + advantages */
-.cta-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}
-.adv{background:linear-gradient(160deg,var(--steel-d),var(--bg2));border:1px solid var(--line2);border-radius:var(--r);padding:38px}
+.cta-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:stretch}
+.adv{background:linear-gradient(160deg,var(--steel-d),var(--bg2));border:1px solid var(--line2);border-radius:var(--r);padding:38px;display:flex;flex-direction:column}
 .adv h3{font-size:22px;text-transform:uppercase;margin-bottom:6px}
 .adv .sub{color:#c9d6ea;font-size:15px;margin-bottom:22px}
 .adv ul{list-style:none}
 .adv li{display:flex;gap:13px;padding:13px 0;border-top:1px solid rgba(255,255,255,.08);font-size:15.5px;color:#e6edf7;align-items:flex-start}
 .adv li:first-child{border-top:none}
 .adv li .svg-i{color:var(--amber-l);width:20px;height:20px;margin-top:2px}
+.adv-foot{margin-top:auto;padding-top:24px}
+.adv-foot .ln{height:1px;background:rgba(255,255,255,.12);margin-bottom:22px}
+.adv-cta{display:flex;align-items:center;gap:16px;background:rgba(8,12,20,.4);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px 20px}
+.adv-cta .ic{width:46px;height:46px;border-radius:11px;background:linear-gradient(135deg,var(--amber-l),var(--amber-d));display:flex;align-items:center;justify-content:center;flex:none}
+.adv-cta .ic .svg-i{color:#1a1206;width:23px;height:23px}
+.adv-cta .k{font-size:12px;color:#aebfd6;text-transform:uppercase;letter-spacing:1px}
+.adv-cta .v{font-family:var(--ff-d);font-size:21px;font-weight:600;color:#fff;letter-spacing:.5px}
 .form{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:36px}
 .form h3{font-size:22px;text-transform:uppercase}
 .form .fsub{color:var(--mut);font-size:14px;margin:8px 0 24px}
@@ -198,7 +215,8 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;line-height:1.08;letter-spacing
 .cert span{font-size:11px;color:var(--mut2);text-transform:uppercase;letter-spacing:1px;margin-top:4px;display:block}
 
 /* contacts */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch}
+.contact-l{display:flex;flex-direction:column}
 .cc-list{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
 .cc{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:18px;transition:.25s}
 .cc:hover{border-color:var(--steel-l)}
@@ -206,10 +224,14 @@ h1,h2,h3{font-family:var(--ff-d);font-weight:600;line-height:1.08;letter-spacing
 .cc .ic .svg-i{color:var(--amber)}
 .cc .k{font-size:12px;color:var(--mut2);text-transform:uppercase;letter-spacing:1px}
 .cc .v{font-size:16px;color:var(--ink);font-weight:500;margin-top:2px;word-break:break-word}
-.contact-cta{background:linear-gradient(150deg,var(--steel-d),var(--bg2));border:1px solid var(--line2);border-radius:var(--r);padding:38px}
+.contact-cta{background:linear-gradient(150deg,var(--steel-d),var(--bg2));border:1px solid var(--line2);border-radius:var(--r);padding:38px;display:flex;flex-direction:column}
 .contact-cta h3{font-size:26px;text-transform:uppercase;line-height:1.1}
 .contact-cta p{color:#c9d6ea;margin:14px 0 26px}
 .contact-cta .row{display:flex;gap:14px;flex-wrap:wrap}
+.contact-cta .hours{margin-top:auto;padding-top:26px}
+.contact-cta .hours .ln{height:1px;background:rgba(255,255,255,.12);margin-bottom:22px}
+.contact-cta .hours .hr{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#c9d6ea;padding:7px 0}
+.contact-cta .hours .hr b{color:#fff;font-weight:600}
 
 /* footer */
 footer{background:#090b0e;border-top:1px solid var(--line);padding:56px 0 28px}
@@ -286,7 +308,7 @@ footer{background:#090b0e;border-top:1px solid var(--line);padding:56px 0 28px}
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="wrap">
-    <div class="hero-em"><span>001 / 006</span><span class="ln"></span><span>ЗАЩИТНО-ОГРАДИТЕЛЬНЫЕ КОНСТРУКЦИИ</span></div>
+    <div class="hero-em"><span class="ln"></span><span>ЗАЩИТНО-ОГРАДИТЕЛЬНЫЕ КОНСТРУКЦИИ</span></div>
     <h1>Защита <span class="g">промышленных объектов</span> от воздушных и наземных угроз</h1>
     <p class="hero-sub">Проектируем, производим и монтируем защитно-оградительные конструкции для энергетики, нефтегаза, складов, ЦОД и инфраструктуры жизнеобеспечения. Полный цикл — от обследования объекта до сдачи под ключ.</p>
     <div class="hero-tags">
@@ -309,7 +331,6 @@ footer{background:#090b0e;border-top:1px solid var(--line);padding:56px 0 28px}
 
 <!-- objects -->
 <section class="s-pad" id="objects">
-  <span class="s-num">002 / 006</span>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Объекты, на которых работаем</span>
@@ -408,7 +429,6 @@ footer{background:#090b0e;border-top:1px solid var(--line);padding:56px 0 28px}
 
 <!-- solutions -->
 <section class="s-pad s-alt" id="solutions">
-  <span class="s-num">003 / 006</span>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Варианты защитных решений</span>
@@ -446,12 +466,11 @@ footer{background:#090b0e;border-top:1px solid var(--line);padding:56px 0 28px}
 
 <!-- geo / map -->
 <section class="s-pad" id="geo">
-  <span class="s-num">004 / 006</span>
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:42px">
-      <span class="eyebrow">География работы</span>
-      <h2>Карта регионов присутствия</h2>
-      <p>Выезжаем на обследование, производим и монтируем конструкции в любом регионе России. Базовое производство — в Сочи, Краснодарский край.</p>
+      <span class="eyebrow">География угроз</span>
+      <h2>Карта нарушений воздушного пространства</h2>
+      <p>Угроза с воздуха давно вышла за пределы приграничья: фиксации беспилотников отмечают по всей территории страны, с наибольшей интенсивностью в южных, центральных и приволжских промышленных регионах. Защита нужна там, где сосредоточена критическая инфраструктура.</p>
     </div>
     <div class="map-wrap">
       <div class="map-box reveal">
@@ -684,33 +703,40 @@ l18 -31 -33 -30 c-32 -29 -35 -29 -48 -12 -7 10 -14 31 -14 47 0 18 -10 41
 <path d="M4140 5771 c-14 -26 -13 -38 4 -44 30 -12 56 4 56 34 0 24 -4 29 -25
 29 -14 0 -29 -8 -35 -19z"/>
 </g></svg>
-          <div class="node hq" style="left:14%;top:78%"><span class="pin"></span><span class="lab">Сочи · производство</span></div>
-          <div class="node" style="left:13%;top:60%"><span class="pin"></span><span class="lab">Москва</span></div>
-          <div class="node" style="left:9%;top:50%"><span class="pin"></span><span class="lab">Санкт-Петербург</span></div>
-          <div class="node" style="left:33%;top:62%"><span class="pin"></span></div>
-          <div class="node" style="left:46%;top:66%"><span class="pin"></span></div>
-          <div class="node" style="left:60%;top:60%"><span class="pin"></span></div>
-          <div class="node" style="left:75%;top:64%"><span class="pin"></span></div>
-          <div class="node" style="left:86%;top:58%"><span class="pin"></span></div>
+          <!-- зоны интенсивности угрозы -->
+          <span class="zone hi"  style="left:17%;top:61%;width:130px;height:130px"></span>
+          <span class="zone hi"  style="left:22%;top:55%;width:150px;height:150px"></span>
+          <span class="zone mid" style="left:13%;top:50%;width:120px;height:120px"></span>
+          <span class="zone mid" style="left:30%;top:55%;width:140px;height:140px"></span>
+          <span class="zone mid" style="left:44%;top:54%;width:120px;height:120px"></span>
+          <span class="zone mid" style="left:60%;top:53%;width:110px;height:110px"></span>
+          <!-- точки фиксации -->
+          <span class="node" style="left:16%;top:62%"><span class="pin"></span></span>
+          <span class="node" style="left:21%;top:56%"><span class="pin"></span></span>
+          <span class="node" style="left:24%;top:60%"><span class="pin"></span></span>
+          <span class="node" style="left:13%;top:50%"><span class="pin"></span></span>
+          <span class="node" style="left:19%;top:52%"><span class="pin"></span></span>
+          <span class="node" style="left:31%;top:55%"><span class="pin"></span></span>
+          <span class="node" style="left:44%;top:54%"><span class="pin"></span></span>
+          <span class="node" style="left:60%;top:53%"><span class="pin"></span></span>
         </div>
         <div class="map-legend">
-          <span><i style="background:var(--steel-l)"></i>Производство</span>
-          <span><i style="background:var(--amber)"></i>Регионы монтажа</span>
+          <span><i style="background:#ff5a2c"></i>Высокая интенсивность</span>
+          <span><i style="background:#ff961e"></i>Средняя интенсивность</span>
+          <span><i style="background:#ff5a2c;box-shadow:0 0 0 2px rgba(255,255,255,.4)"></i>Точки фиксации</span>
         </div>
       </div>
       <div class="geo reveal">
-        <h2>Работаем по всей</h2>
-        <div class="big">России</div>
-        <p class="muted">Логистика производства и монтажные бригады покрывают все федеральные округа. Срок выезда на обследование — от 2 рабочих дней.</p>
-        <ul class="districts">
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Центральный ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Северо-Западный ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Южный ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Северо-Кавказский ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Приволжский ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Уральский ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Сибирский ФО</li>
-          <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Дальневосточный ФО</li>
+        <div class="big">18&nbsp;247</div>
+        <div class="big-sub">нарушений воздушного пространства в 2026 году</div>
+        <p class="muted">Промышленные объекты в этих зонах — приоритетные цели для беспилотников. Чем выше концентрация энергетики, нефтегаза и логистики, тем выше риск.</p>
+        <ul class="threats">
+          <li><span class="lv" style="background:#ff5a2c"></span><span class="nm">Южный ФО</span><span class="badge">высокая</span></li>
+          <li><span class="lv" style="background:#ff5a2c"></span><span class="nm">Северо-Кавказский ФО</span><span class="badge">высокая</span></li>
+          <li><span class="lv" style="background:#ff5a2c"></span><span class="nm">Центральный ФО</span><span class="badge">высокая</span></li>
+          <li><span class="lv" style="background:#ff961e"></span><span class="nm">Приволжский ФО</span><span class="badge">средняя</span></li>
+          <li><span class="lv" style="background:#ff961e"></span><span class="nm">Северо-Западный ФО</span><span class="badge">средняя</span></li>
+          <li><span class="lv" style="background:#ff961e"></span><span class="nm">Уральский ФО</span><span class="badge">средняя</span></li>
         </ul>
       </div>
     </div>
@@ -719,7 +745,6 @@ l18 -31 -33 -30 c-32 -29 -35 -29 -48 -12 -7 10 -14 31 -14 47 0 18 -10 41
 
 <!-- steps -->
 <section class="s-pad s-alt" id="steps">
-  <span class="s-num">005 / 006</span>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Как мы работаем</span>
@@ -745,7 +770,6 @@ l18 -31 -33 -30 c-32 -29 -35 -29 -48 -12 -7 10 -14 31 -14 47 0 18 -10 41
 
 <!-- form + advantages -->
 <section class="s-pad" id="contacts">
-  <span class="s-num">006 / 006</span>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Запросить аудит объекта</span>
@@ -763,6 +787,13 @@ l18 -31 -33 -30 c-32 -29 -35 -29 -48 -12 -7 10 -14 31 -14 47 0 18 -10 41
           <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Выполняем расчёт стоимости и сроков реализации</li>
           <li><svg class="svg-i" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Предоставляем необходимую техническую документацию</li>
         </ul>
+        <div class="adv-foot">
+          <div class="ln"></div>
+          <a class="adv-cta" href="tel:+79882372933">
+            <span class="ic"><svg class="svg-i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span><span class="k">Консультация инженера</span><span class="v">+7 988 237 29 33</span></span>
+          </a>
+        </div>
       </div>
       <form class="form reveal" onsubmit="event.preventDefault();this.querySelector('.btn').textContent='Заявка отправлена ✓';">
         <h3>Форма обратной связи</h3>
@@ -845,7 +876,7 @@ l18 -31 -33 -30 c-32 -29 -35 -29 -48 -12 -7 10 -14 31 -14 47 0 18 -10 41
 <section class="s-pad">
   <div class="wrap">
     <div class="contact-grid">
-      <div class="reveal">
+      <div class="reveal contact-l">
         <span class="eyebrow">Контакты</span>
         <h2 style="font-size:clamp(28px,3.6vw,42px);text-transform:uppercase;margin:16px 0 6px">Свяжитесь с нами</h2>
         <div class="cc-list">
@@ -864,6 +895,12 @@ l18 -31 -33 -30 c-32 -29 -35 -29 -48 -12 -7 10 -14 31 -14 47 0 18 -10 41
         <div class="row">
           <a href="tel:+79882372933" class="btn btn-primary"><svg class="svg-i" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Позвонить</a>
           <a href="https://t.me/+79882372933" class="btn btn-ghost"><svg class="svg-i" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>Telegram</a>
+        </div>
+        <div class="hours">
+          <div class="ln"></div>
+          <div class="hr"><span>Приём заявок</span><b>Круглосуточно</b></div>
+          <div class="hr"><span>Офис · Пн–Пт</span><b>9:00 — 18:00</b></div>
+          <div class="hr"><span>Выезд на объект</span><b>от 2 рабочих дней</b></div>
         </div>
       </div>
     </div>
